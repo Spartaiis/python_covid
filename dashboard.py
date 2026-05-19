@@ -3,8 +3,6 @@ import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback, dash_table
 import dash_bootstrap_components as dbc
 
-# ── Chargement et nettoyage ───────────────────────────────────────────────────
-
 df = pd.read_csv("cases_deaths.csv", parse_dates=["date"])
 
 REGIONS = [
@@ -35,7 +33,6 @@ def get_snapshot(dff):
     return snap[snap["date"] == snap["last_date"]].drop(columns="last_date")
 
 
-# ── App Dash + Bootstrap ──────────────────────────────────────────────────────
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.DARKLY])
 app.title = "COVID-19 Dashboard"
@@ -48,10 +45,8 @@ def make_kpi_card(title, value, color="primary"):
     ]), className="shadow-sm")
 
 
-# ── Layout ────────────────────────────────────────────────────────────────────
-
 app.layout = dbc.Container([
-    dbc.Row(dbc.Col(html.H1("🦠 COVID-19 — Dashboard Mondial", className="text-center my-4"))),
+    dbc.Row(dbc.Col(html.H1("COVID-19 — Dashboard Mondial", className="text-center my-4"))),
     dbc.Row(id="kpi-row", className="mb-4 g-3"),
 
     # Contrôles
@@ -88,8 +83,6 @@ app.layout = dbc.Container([
            className="text-center text-muted small"),
 ], fluid=True)
 
-
-# ── Callbacks ─────────────────────────────────────────────────────────────────
 
 @callback(Output("kpi-row", "children"), Input("date-range", "end_date"))
 def update_kpis(end_date):

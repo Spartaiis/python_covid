@@ -1,14 +1,8 @@
-"""
-Version 2 — Premier dashboard Dash
-Objectif : transformer l'exploration statique en une app interactive.
-           Un seul graphique réactif, sélection d'un pays via Dropdown.
-"""
-
 import pandas as pd
 import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback
 
-# ── Chargement et nettoyage ───────────────────────────────────────────────────
+# Chargement et nettoyage 
 
 df = pd.read_csv("cases_deaths.csv", parse_dates=["date"])
 df = df.sort_values(["country", "date"]).reset_index(drop=True)
@@ -25,8 +19,7 @@ REGIONS = [
 df_country = df[~df["country"].isin(REGIONS)].copy()
 countries = sorted(df_country["country"].unique())
 
-# ── Application Dash ──────────────────────────────────────────────────────────
-
+# Application Dash
 app = Dash(__name__)
 app.title = "COVID-19 Dashboard"
 

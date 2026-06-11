@@ -1,3 +1,21 @@
+# Environnement virtuel (créé par uv)
+.venv/
+
+# Caches Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Données brutes téléchargées (régénérables via get_data.py)
+data/raw/
+
+# Base SQLite : trop volumineuse pour GitHub (>100 Mo), reconstruite
+# automatiquement au premier lancement de main.py.
+data/db.sqlite
+
+# CSV de développement à la racine (volumineux, non versionné)
 cases_deaths.csv
 output.csv
 WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx

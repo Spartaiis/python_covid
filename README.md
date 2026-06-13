@@ -209,3 +209,15 @@ les auteurs) du projet.
 Le projet a bénéficié d'une assistance par IA agentique (Claude Code) pour la
 restructuration en packages, la mise en conformité avec la consigne et la
 documentation. Les prompts structurants sont conservés à part.
+
+Voici plusieurs exemples de prompts utilisés :
+
+"fais moi un requirements.txt de tout les modules ainsi que leurs versions"
+
+"effectue un audit du projet pour l'améliorer"
+
+"Aide moi à commenter le code pour le rendre plus lisible"
+
+### Vidéo de présentation
+
+https://youtu.be/G4ANUFQpGjA
